@@ -32,6 +32,11 @@ esphome:
     board_build.flash_mode: dio
     board_upload.maximum_ram_size: 524288
 
+# Wifi Setup
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
 # Over the Air Updates
 ota:
   platform: esphome
