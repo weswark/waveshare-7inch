@@ -97,3 +97,103 @@ lvgl:
                     temperature: 24
                     hvac_mode: cool
 
+   - id: page_1
+      layout: flex
+      pad_all: 10
+      widgets:
+        - obj:
+            width: 100%
+            height: 50px
+            bg_color: 0xFFFFFF
+            outline_width: 0
+            border_width: 2
+            border_color: 0x000000
+        - label:
+            height: size_content
+            width: 150px
+            long_mode: scroll_circular
+            text: 'Page 1 label with very long text wrapping lines'
+        - btn:
+            on_click:
+              then:
+                - logger.log: Button clicked
+                - lvgl.widget.show: message_box
+            width: size_content
+            id: change_btnm
+            widgets:
+              - label:
+                  width: 100px
+                  long_mode: scroll
+                  text: Disable button matrix
+                  on_press:
+                    then:
+                      - lvgl.widget.update:
+                          id: b_matrix
+                          state:
+                            disabled: true
+                      - lambda: |-
+                          static const char * new_matrix[] = {"A","bbb","\n","ccc",LV_SYMBOL_PREV,"\n","E",NULL};
+                          lv_btnmatrix_set_map(id(b_matrix)->obj, new_matrix);
+                        
+                        
+            text_color: 0x000000
+            align: center
+        - btn:
+            bg_color: 0x80FF00
+            width: size_content
+            id: lv_page1_button0
+            on_click:
+              then:
+                - lvgl.pause:
+                    show_snow: true
+            widgets:
+              - label:
+                  bg_color: 0x80ffff
+                  width: 100px
+                  long_mode: scroll
+                  text: Disable button matrix
+        - btn:
+            bg_color: 0xFF80FF
+            width: size_content
+            id: lv_page1_button1
+            on_click:
+              then:
+                - lvgl.widget.show:
+                    id: b_matrix
+            widgets:
+              - label:
+                  text_font: helv20
+                  bg_color: 0xFF80FF
+                  width: 100px
+                  long_mode: scroll
+                  text: Disable button matrix
+
+        - btn:
+            on_click:
+              then:
+                - logger.log: Button clicked
+                - lvgl.widget.show: message_box
+            width: size_content
+            id: lv_page1_button
+            widgets:
+              - label:
+                  width: 100px
+                  long_mode: scroll
+                  text: "Show message box"
+
+        - roller:
+            id: lv_roller
+            options:
+              - Jan
+              - Feb
+              - Mar
+              - Apr
+              - May
+              - Jun
+              - Jul
+              - Aug
+              - Sep
+              - Oct
+              - Nov
+              - Dec
+            selected_index: 2
