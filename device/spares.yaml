@@ -71,3 +71,4 @@ time:
         seconds: 0
         then:
           - switch.turn_on: lcdbacklight
+
