@@ -5,6 +5,12 @@ substitutions:
   friendly_name: "Bussynonna Panel"
   room: "Bus"
 
+
+# Wifi Setup
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
 # Packages
 packages:
   setup:
