@@ -1,18 +1,40 @@
 lvgl:
   ...
   on_idle:
-    - timeout: 10s
-      then:
-        - logger.log: idle timeout
-        - if:
-            condition:
-              lvgl.is_idle:
-                timeout: 5s
-            then:
-              - logger.log: LVGL is idle
-    - timeout: 15s
-      then:
-        - logger.log: idle 15s timeout
+    timeout: !lambda "return (id(display_timeout).state * 1000);"
+    then:
+      - logger.log: "LVGL is idle"
+      - .turn_off: display_backlight
+      - lvgl.pause:
+
+touchscreen:
+  - platform: ...
+    on_release:
+      - if:
+          condition: lvgl.is_paused
+          then:
+            - logger.log: "LVGL resuming"
+            - lvgl.resume:
+            - lvgl.widget.redraw:
+            - light.turn_on: display_backlight
+
+light:
+  - platform: ...
+    id: display_backlight
+
+number:
+  - platform: template
+    name: LVGL Screen timeout
+    optimistic: true
+    id: display_timeout
+    unit_of_measurement: "s"
+    initial_value: 45
+    restore_value: true
+    min_value: 10
+    max_value: 180
+    step: 5
+    mode: box
+        
   top_layer:
     widgets:
     
@@ -52,27 +74,27 @@ lvgl:
       
       widgets:
       
-        # Office Light
+        # Office 
         - button: 
             height: $button_height_single
             checkable: false
-            id: office_light_button
+            id: office__button
             styles: control
             widgets:
               - label:
                   text_font: $icon_font
                   align: top_left
-                  id: office_light_icon                
+                  id: office__icon                
                   text: $ledstrip
               - label:
                   align: bottom_left
-                  id: office_light_label
-                  text: "Light"
+                  id: office__label
+                  text: ""
             on_press:
               - homeassistant.service:
-                  service: light.turn_on
+                  service: .turn_on
                   data:
-                    entity_id: light.study
+                    entity_id: .study
 
 
         # Aircon
