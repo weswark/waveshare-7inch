@@ -1,40 +1,4 @@
 lvgl:
-  ...
-  on_idle:
-    timeout: !lambda "return (id(display_timeout).state * 1000);"
-    then:
-      - logger.log: "LVGL is idle"
-      - .turn_off: display_backlight
-      - lvgl.pause:
-
-touchscreen:
-  - platform: ...
-    on_release:
-      - if:
-          condition: lvgl.is_paused
-          then:
-            - logger.log: "LVGL resuming"
-            - lvgl.resume:
-            - lvgl.widget.redraw:
-            - light.turn_on: display_backlight
-
-light:
-  - platform: ...
-    id: display_backlight
-
-number:
-  - platform: template
-    name: LVGL Screen timeout
-    optimistic: true
-    id: display_timeout
-    unit_of_measurement: "s"
-    initial_value: 45
-    restore_value: true
-    min_value: 10
-    max_value: 180
-    step: 5
-    mode: box
-        
   top_layer:
     widgets:
     
@@ -78,18 +42,18 @@ number:
         - button: 
             height: $button_height_single
             checkable: false
-            id: office__button
+            id: office_button
             styles: control
             widgets:
               - label:
                   text_font: $icon_font
                   align: top_left
-                  id: office__icon                
+                  id: office_icon                
                   text: $ledstrip
               - label:
                   align: bottom_left
-                  id: office__label
-                  text: ""
+                  id: office_label
+                  text: "Office"
             on_press:
               - homeassistant.service:
                   service: .turn_on
