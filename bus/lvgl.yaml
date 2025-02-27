@@ -1,12 +1,4 @@
 lvgl:
-  on_idle:
-    - timeout: 30s
-      then:
-        - lvgl.page.show: main_page
-    - timeout: 60s
-      then:
-        - light.turn_off: backlight
-        - lvgl.pause:
   top_layer:
     widgets:
     
