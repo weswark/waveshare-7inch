@@ -1,7 +1,6 @@
 lvgl:
   top_layer:
     widgets:
-    
       # Temperature
       - label:
           text: "-° / -°"
@@ -22,7 +21,7 @@ lvgl:
           y: 4
           text_align: center
           text_color: 0xFFFFFF
-          
+
   pages:
     - id: main_page
       layout: 
@@ -35,24 +34,24 @@ lvgl:
       pad_bottom: 5
       pad_left: 5
       pad_right: 5
-      
+
       widgets:
-      
-        # Office 
+
+        # Bus 
         - button: 
             height: $button_height_single
             checkable: false
-            id: office__button
+            id: bus_light_button
             styles: control
             widgets:
               - label:
                   text_font: $icon_font
                   align: top_left
-                  id: office__icon                
+                  id: bus_icon                
                   text: $ledstrip
               - label:
                   align: bottom_left
-                  id: office__label
+                  id: bus_label
                   text: "Office"
             on_press:
               - homeassistant.service:
@@ -65,7 +64,7 @@ lvgl:
         - button: 
             height: $button_height_single
             checkable: true
-            id: aircon_button
+            id: air_conditioner_button
             styles: control
             widgets:
               - label:
@@ -121,8 +120,8 @@ lvgl:
                       - lambda: |-
                           static const char * new_matrix[] = {"A","bbb","\n","ccc",LV_SYMBOL_PREV,"\n","E",NULL};
                           lv_btnmatrix_set_map(id(b_matrix)->obj, new_matrix);
-                        
-                        
+
+
             text_color: 0x000000
             align: center
         - btn:
