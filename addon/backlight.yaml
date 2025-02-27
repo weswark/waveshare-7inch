@@ -1,5 +1,5 @@
 # Backlight
-switch:
+light:
   - platform: gpio
     id: backlight
     pin: 
@@ -16,11 +16,11 @@ binary_sensor:
     on_press:
       - lvgl.resume:
       - delay: 10ms
-      - switch.turn_on: backlight
+      - light.turn_on: backlight
       - logger.log: "Screensaver is turned off"
 
     on_release:
-      - switch.turn_off: backlight
+      - light.turn_off: backlight
       - lvgl.pause:
           show_snow: true
       - logger.log: "Screensaver is turned on"

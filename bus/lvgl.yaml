@@ -5,7 +5,7 @@ lvgl:
         - lvgl.page.show: main_page
     - timeout: 60s
       then:
-        - light.turn_off: display_backlight
+        - light.turn_off: backlight
         - lvgl.pause:
   top_layer:
     widgets:
