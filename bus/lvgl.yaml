@@ -60,26 +60,4 @@ lvgl:
                     entity_id: light.study
 
 
-        # Aircon
-        - button: 
-            height: $button_height_single
-            checkable: true
-            id: air_conditioner_button
-            styles: control
-            widgets:
-              - label:
-                  text_font: $icon_font
-                  align: top_left
-                  text: $aircon
-              - label:
-                  align: bottom_left
-                  text: "Aircon"
-            on_click:
-              - homeassistant.service:
-                  action: climate.set_temperature
-                  target:
-                    entity_id: climate.airconditioner
-                  data:
-                    temperature: 24
-                    hvac_mode: cool
 
