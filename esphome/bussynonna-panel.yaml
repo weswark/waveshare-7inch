@@ -22,6 +22,6 @@ packages:
             assets/icons.yaml,
             assets/images.yaml,
             theme/button.yaml,
-            _bus/sensors.yaml,
-            _bus/lvgl.yaml]
+            screenbus/sensors.yaml,
+            screenbus/lvgl.yaml]
     refresh: 1sec
