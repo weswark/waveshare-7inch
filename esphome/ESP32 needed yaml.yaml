@@ -2,7 +2,7 @@
 substitutions:
   name: "bus-panel"
   friendly_name: "Bus Panel"
-  room: "Bus"
+  area: "Bus"
 
 # Wifi Setup
 wifi:
