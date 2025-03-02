@@ -25,3 +25,4 @@ https://esphome.io/cookbook/lvgl.html#theme-and-style-definitions
                 on_press:
                   then:
                     lvgl.page.next:
+                    
