@@ -1,4 +1,10 @@
 lvgl:
+  on_idle:
+    timeout: !lambda "return (id(display_timeout).state * 1000);"
+    then:
+      - logger.log: "LVGL is idle"
+      - switch.turn_off: backlight
+      - lvgl.pause:
   top_layer:
     widgets:
     
