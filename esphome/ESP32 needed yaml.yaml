@@ -16,6 +16,7 @@ packages:
             addon/time.yaml,
             addon/backlight.yaml,
             addon/network.yaml,
+            addon/scripts.yaml,
             assets/fonts.yaml,
             assets/icons.yaml,
             assets/images.yaml,
