@@ -232,7 +232,7 @@ lvgl:
                             action: climate.set_temperature
                             data:
                               temperature: !lambda return x;
-                              entity_id: climate.room_thermostat
+                              entity_id: climate.airconditioner
                 - button:
                     id: spin_up
                     on_click:
