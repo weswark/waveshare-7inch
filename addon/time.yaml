@@ -1,12 +1,7 @@
-# Snmp Time
+# Time
 time:
-  - platform: sntp
-    id: sntp_time
-    timezone: Autsralia/Perth
-    servers:
-     - 0.pool.ntp.org
-     - 1.pool.ntp.org
-     - 2.pool.ntp.org
+  - platform: homeassistant
+    id: time_comp
     on_time_sync:
       - script.execute: time_update
     on_time:
@@ -20,9 +15,9 @@ script:
   - id: time_update
     then:
       - lvgl.label.update:
-          id: display_time
+          id: current_time
           text: !lambda |-
-            static char time_buf[17];
-            auto now = id(sntp_time).now();
-            snprintf(time_buf, sizeof(time_buf), "%02d:%02d", now.hour, now.minute);
-            return time_buf;
+            static char hhss[8];
+            auto now = id(time_comp).now();
+            snprintf(hhss, sizeof(hhss), "%02d:%02d", now.hour, now.minute);
+            return hhss;
