@@ -32,7 +32,7 @@ lvgl:
                 text: "\uF054"
                 on_press:
                   then:
-                    lvgl.page.next:    
+                    lvgl.page.next:
 
       # Temperature
       - label:
@@ -205,7 +205,7 @@ lvgl:
                   grid_cell_x_align: STRETCH
 
       # PAGE - 3rd
-    - id: AIRCOM
+    - id: AIRCON
       widgets:
         - obj:
             align: TOP_MID
