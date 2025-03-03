@@ -7,6 +7,7 @@ lvgl:
       - lvgl.pause:
   top_layer:
     widgets:
+
       - buttonmatrix:
           align: bottom_mid
           styles: header_footer
@@ -32,7 +33,6 @@ lvgl:
                 on_press:
                   then:
                     lvgl.page.next:    
-
 
       # Temperature
       - label:
@@ -60,6 +60,8 @@ lvgl:
   
   
   pages:
+
+
       # PAGE - HOME
     - id: main_page
       layout: 
@@ -73,7 +75,18 @@ lvgl:
       pad_left: 5
       pad_right: 5
       
+      # TITLE
       widgets:
+        - obj:
+            align: TOP_MID
+            styles: header_footer
+            widgets:
+              - label:
+                  text: "BussyNonna"
+                  align: CENTER
+                  text_align: CENTER
+                  text_color: 0xFFFFFF
+                  
       # TOWELS
         - button: 
             height: $button_height_single
@@ -98,20 +111,9 @@ lvgl:
 
 
       # PAGE - CLIMATE
-    - id: climate_page
-      layout: 
-        type: flex
-        flex_flow: column_wrap
-      width: 100%
-      bg_color: Black
-      bg_opa: cover
-      pad_top: 30
-      pad_bottom: 5
-      pad_left: 5
-      pad_right: 5
+      
 
-      # AIRCON
-       - id: thermostat_control
+      - id: climate_page
         widgets:
           - obj:
               align: BOTTOM_MID
@@ -155,3 +157,14 @@ lvgl:
                     widgets:
                       - label:
                           text: "+"
+
+
+
+#3rd Page
+      - id: page3
+        widgets:
+          - label:
+              align: bottom_mid
+              text_font: font1
+              text: "Outside1"
+              text_color: white
