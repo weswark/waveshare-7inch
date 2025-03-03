@@ -9,7 +9,15 @@ sensor:
           text:
             format: "%d° / %d°"
             args: [ '(int)round(id(kitchen_temperature).state)', '(int)round(x)' ]
-
+  # Kitchen Temperate
+  - platform: homeassistant
+    id: aircon
+    entity_id: climate.airconditioner
+    attribute: temperature
+    on_value:
+      - lvgl.spinbox.update:
+          id: spinbox_id
+          value: !lambda return x;
 
 
 binary_sensor:
