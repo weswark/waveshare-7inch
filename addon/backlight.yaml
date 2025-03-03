@@ -61,3 +61,17 @@ number:
     max_value: 180
     step: 5
     mode: box
+    
+time:
+  - platform: ...
+    on_time:
+      - hours: 2,3,4,5
+        minutes: 5
+        seconds: 0
+        then:
+          - switch.turn_on: switch_antiburn
+      - hours: 2,3,4,5
+        minutes: 35
+        seconds: 0
+        then:
+          - switch.turn_off: switch_antiburn
