@@ -11,10 +11,11 @@ sensor:
             args: [ '(int)round(id(kitchen_temperature).state)', '(int)round(x)' ]
   # Kitchen Temperate
   - platform: homeassistant
-    id: aircon
+    id: airconditioner
     entity_id: climate.airconditioner
     attribute: temperature
     on_value:
+      then:
       - lvgl.spinbox.update:
           id: spinbox_id
           value: !lambda return x;
