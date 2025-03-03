@@ -23,3 +23,31 @@ binary_sensor:
           id: heated_towel_button
           state:
             checked: !lambda return x;
+  - platform: status
+    name: Status sensor
+
+text:
+  - platform: lvgl
+    name: fr_cond_icon
+    widget: lbl_weather_forecast_condition_icon
+    mode: text
+  - platform: lvgl
+    name: fr_cond_name
+    widget: lbl_weather_forecast_condition_name
+    mode: text
+  - platform: lvgl
+    name: fr_tempap
+    widget: lbl_weather_forecast_tempap
+    mode: text
+  - platform: lvgl
+    name: fr_temphi
+    widget: lbl_weather_forecast_temphi
+    mode: text
+  - platform: lvgl
+    name: fr_templo
+    widget: lbl_weather_forecast_templo
+    mode: text
+  - platform: lvgl
+    name: wd_out_now
+    widget: lbl_weather_outdnoor_now
+    mode: text
