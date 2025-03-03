@@ -54,6 +54,7 @@ lvgl:
           text_color: 0xFFFFFF
           
   pages:
+      # PAGE - HOME
     - id: main_page
       layout: 
         type: flex
@@ -67,8 +68,7 @@ lvgl:
       pad_right: 5
       
       widgets:
-      
-        # Office Features Scene
+      # TOWELS
         - button: 
             height: $button_height_single
             checkable: false
@@ -91,6 +91,20 @@ lvgl:
                     entity_id: switch.towel
 
 
+      # PAGE - CLIMATE
+    - id: climate_page
+      layout: 
+        type: flex
+        flex_flow: column_wrap
+      width: 100%
+      bg_color: Black
+      bg_opa: cover
+      pad_top: 30
+      pad_bottom: 5
+      pad_left: 5
+      pad_right: 5
+
+      # AIRCON
        - id: thermostat_control
         widgets:
           - obj:
