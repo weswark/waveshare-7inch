@@ -8,6 +8,10 @@ switch:
     restore_mode: ALWAYS_ON
     internal: true
 
+light:
+  - platform: ...
+    id: backlight
+
 # Screensaver Presence Trigger
 binary_sensor:
   - platform: homeassistant
