@@ -82,10 +82,8 @@ touchscreen:
       - if:
           condition: lvgl.is_paused
           then:
-            - logger.log: "LVGL resuming"
             - lvgl.resume:
             - lvgl.widget.redraw:
-            - light.turn_on: display_backlight
             
 
 # Display
