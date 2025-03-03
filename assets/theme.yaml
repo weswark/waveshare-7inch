@@ -1,0 +1,73 @@
+substitutions:
+  icon_font: icon_font
+  text_font: roboto17_font
+  button_on_color: "0xFF8C00"
+  button_text_color: "0xFFFFFF"
+  button_control_color: "0x313131"
+  button_webhook_color: "0x212121"
+  button_height_single: 102px
+  button_height_double: 220px
+  button_width: 149px
+  padding: 8px
+  radius: 12px
+
+lvgl:
+  style_definitions:
+    - id: webhook
+      bg_color: $button_webhook_color
+
+    - id: control
+      bg_color: $button_control_color
+
+    - id: header_footer
+      bg_color: $button_on_color
+      bg_grad_color: 0x005782
+      bg_grad_dir: VER
+      bg_opa: COVER
+      border_opa: TRANSP
+      radius: 0
+      pad_all: 0
+      pad_row: 0
+      pad_column: 0
+      border_color: 0x0077b3
+      text_color: $button_text_color
+      width: 100%
+      height: 30
+
+  theme:
+    button:
+      text_font: $text_font
+      scroll_on_focus: false
+      radius: $radius
+      width: $button_width
+      height: $button_height_single
+      pad_all: $padding
+      shadow_width: 0
+      text_color: $button_text_color
+      checked:
+        bg_color: $button_on_color
+        text_color: $button_text_color
+    buttonmatrix:
+      bg_opa: TRANSP
+      border_color: 0x0077b3
+      border_width: 0
+      text_color: 0xFFFFFF
+      pad_all: 0
+      items: # set all your buttonmatrix buttons to use your custom defined styles and font
+        bg_color: 0x2F8CD8
+        bg_grad_color: 0x005782
+        bg_grad_dir: VER
+        bg_opa: COVER
+        border_color: 0x0077b3
+        border_width: 1
+        text_color: 0xFFFFFF
+        text_font: $text_font
+        pressed:
+          bg_color: 0x006699
+          bg_grad_color: 0x00334d
+        checked:
+          bg_color: 0x1d5f96
+          bg_grad_color: 0x03324A
+          text_color: 0x005580
+
+
