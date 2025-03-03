@@ -60,8 +60,6 @@ lvgl:
   
   
   pages:
-
-
       # PAGE - HOME
     - id: main_page
       layout: 
@@ -134,4 +132,47 @@ lvgl:
                   align: CENTER
                   text_align: CENTER
                   text_color: 0xFFFFFF
- 
+        - id: climate_page
+         widgets:
+           - obj:
+              align: BOTTOM_MID
+              y: -50
+              layout:
+                type: FLEX
+                flex_flow: ROW
+                flex_align_cross: CENTER
+              width: SIZE_CONTENT
+              height: SIZE_CONTENT
+              widgets:
+                - button:
+                    id: spin_down
+                    on_click:
+                      - lvgl.spinbox.decrement: spinbox_id
+                    widgets:
+                      - label:
+                           text: "-"
+                - spinbox:
+                    id: spinbox_id
+                    align: CENTER
+                    text_align: CENTER
+                    width: 50
+                    range_from: 15
+                    range_to: 35
+                    step: 0.5
+                    rollover: false
+                    digits: 3
+                    decimal_places: 1
+                    on_value:
+                      then:
+                        - homeassistant.action:
+                            action: climate.set_temperature
+                            data:
+                              temperature: !lambda return x;
+                              entity_id: climate.airconditioner
+                - button:
+                    id: spin_up
+                    on_click:
+                      - lvgl.spinbox.increment: spinbox_id
+                    widgets:
+                      - label:
+                          text: "+"
