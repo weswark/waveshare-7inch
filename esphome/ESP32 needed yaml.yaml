@@ -1,6 +1,5 @@
-# ESP32-S3-Touch-LCD-7
-substitutions:
-  name: "bus-panel"
+esphome:
+  name: touch-screen
   friendly_name: "Bus Panel"
   area: "Bus"
 
@@ -21,6 +20,7 @@ packages:
             assets/icons.yaml,
             assets/images.yaml,
             theme/button.yaml,
-            office/sensors.yaml,
-            office/lvgl.yaml]
-    refresh: 1sec
+#            theme/swipe_navigation.yaml,
+            bus/sensors.yaml,
+            bus/lvgl.yaml]
+    refresh: 1sec    
