@@ -110,61 +110,28 @@ lvgl:
                     entity_id: switch.towel
 
 
-      # PAGE - CLIMATE
+      # PAGE - 2nd
+    - id: second_page
+      layout: 
+        type: flex
+        flex_flow: column_wrap
+      width: 100%
+      bg_color: Black
+      bg_opa: cover
+      pad_top: 30
+      pad_bottom: 5
+      pad_left: 5
+      pad_right: 5
       
-
-      - id: climate_page
-        widgets:
-          - obj:
-              align: BOTTOM_MID
-              y: -50
-              layout:
-                type: FLEX
-                flex_flow: ROW
-                flex_align_cross: CENTER
-              width: SIZE_CONTENT
-              height: SIZE_CONTENT
-              widgets:
-                - button:
-                    id: spin_down
-                    on_click:
-                      - lvgl.spinbox.decrement: spinbox_id
-                    widgets:
-                      - label:
-                           text: "-"
-                - spinbox:
-                    id: spinbox_id
-                    align: CENTER
-                    text_align: CENTER
-                    width: 50
-                    range_from: 15
-                    range_to: 35
-                    step: 0.5
-                    rollover: false
-                    digits: 3
-                    decimal_places: 1
-                    on_value:
-                      then:
-                        - homeassistant.action:
-                            action: climate.set_temperature
-                            data:
-                              temperature: !lambda return x;
-                              entity_id: climate.airconditioner
-                - button:
-                    id: spin_up
-                    on_click:
-                      - lvgl.spinbox.increment: spinbox_id
-                    widgets:
-                      - label:
-                          text: "+"
-
-
-
-#3rd Page
-      - id: page3
-        widgets:
-          - label:
-              align: bottom_mid
-              text_font: font1
-              text: "Outside1"
-              text_color: white
+      # TITLE
+      widgets:
+        - obj:
+            align: TOP_MID
+            styles: header_footer
+            widgets:
+              - label:
+                  text: "Page 2"
+                  align: CENTER
+                  text_align: CENTER
+                  text_color: 0xFFFFFF
+ 
