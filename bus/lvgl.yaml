@@ -21,7 +21,7 @@ lvgl:
       # Clock
       - label:
           text: "--:--"
-          id: display_time
+          id: current_time
           styles: roboto15_style
           align: top_mid
           x: 0
