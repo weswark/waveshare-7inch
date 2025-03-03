@@ -11,9 +11,9 @@ script:
             snprintf(hhss, sizeof(hhss), "%02d:%02d", now.hour, now.minute);
             return hhss;
 #Navigation
-  - id: page_next
-    then:
-      - lvgl.page.next
-  - id: page_prev
-    then:
-      - lvgl.page.previous
+  #- id: page_next
+  #  then:
+  #    - lvgl.page.next
+  #- id: page_prev
+  #  then:
+  #    - lvgl.page.previous
