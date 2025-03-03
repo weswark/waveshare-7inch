@@ -112,6 +112,15 @@ lvgl:
     - id: weather_forecast
       widgets:
         - obj:
+            align: TOP_MID
+            styles: header_footer
+            widgets:
+              - label:
+                  text: "WEATHER"
+                  align: CENTER
+                  text_align: CENTER
+                  text_color: 0xFFFFFF
+        - obj:
             align: CENTER
             width: 228
             height: 250
@@ -196,8 +205,17 @@ lvgl:
                   grid_cell_x_align: STRETCH
 
       # PAGE - 3rd
-      - id: thermostat_control
-        widgets:
+    - id: AIRCOM
+      widgets:
+        - obj:
+            align: TOP_MID
+            styles: header_footer
+            widgets:
+              - label:
+                  text: "AC"
+                  align: CENTER
+                  text_align: CENTER
+                  text_color: 0xFFFFFF
           - obj:
               align: BOTTOM_MID
               y: -50
