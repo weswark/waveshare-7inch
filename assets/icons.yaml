@@ -39,6 +39,9 @@ font:
       "\U000F059D", # windy
       "\U000F059E", # windy-variant
       "\U000F14E4", # sunny-off
+      "\U000F0798", #button right
+      "\U000F0797", #button left
+      "\U000F02DC", #button home
       
       ]
 
@@ -68,4 +71,8 @@ substitutions:
   rainy:          "\U000F0597", # rainy
   sunny:          "\U000F0599", # sunny
   windy:          "\U000F059D", # windy
+#navigation
+  button_right:   "\U000F0798", #button right
+  button_left:    "\U000F0797", #button left
+  button_home:    "\U000F02DC", #button home
  
