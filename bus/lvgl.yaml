@@ -79,7 +79,7 @@ lvgl:
                   text_font: $icon_font
                   align: top_left
                   id: heated_towel_icon                
-                  text: $ledstrip
+                  text: $ladder
               - label:
                   align: bottom_left
                   id: heated_towel_label
