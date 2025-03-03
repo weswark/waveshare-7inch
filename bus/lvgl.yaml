@@ -7,7 +7,31 @@ lvgl:
       - lvgl.pause:
   top_layer:
     widgets:
-    
+      - buttonmatrix:
+          align: bottom_mid
+          styles: header_footer
+          pad_all: 0
+          outline_width: 0
+          id: top_layer
+          items:
+            styles: header_footer
+          rows:
+            - buttons:
+              - id: page_prev
+                text: "\uF053"
+                on_press:
+                  then:
+                    lvgl.page.previous:
+              - id: page_home
+                text: "\uF015"
+                on_press:
+                  then:
+                    lvgl.page.show: main_page
+              - id: page_next
+                text: "\uF054"
+                on_press:
+                  then:
+                    lvgl.page.next:    
       # Temperature
       - label:
           text: "-° / -°"
@@ -59,7 +83,7 @@ lvgl:
               - label:
                   align: bottom_left
                   id: heated_towel_label
-                  text: "Features"
+                  text: "TOWELS"
             on_press:
               - homeassistant.service:
                   service: switch.toggle
@@ -67,4 +91,47 @@ lvgl:
                     entity_id: switch.towel
 
 
- 
+       - id: thermostat_control
+        widgets:
+          - obj:
+              align: BOTTOM_MID
+              y: -50
+              layout:
+                type: FLEX
+                flex_flow: ROW
+                flex_align_cross: CENTER
+              width: SIZE_CONTENT
+              height: SIZE_CONTENT
+              widgets:
+                - button:
+                    id: spin_down
+                    on_click:
+                      - lvgl.spinbox.decrement: spinbox_id
+                    widgets:
+                      - label:
+                           text: "-"
+                - spinbox:
+                    id: spinbox_id
+                    align: CENTER
+                    text_align: CENTER
+                    width: 50
+                    range_from: 15
+                    range_to: 35
+                    step: 0.5
+                    rollover: false
+                    digits: 3
+                    decimal_places: 1
+                    on_value:
+                      then:
+                        - homeassistant.action:
+                            action: climate.set_temperature
+                            data:
+                              temperature: !lambda return x;
+                              entity_id: climate.airconditioner
+                - button:
+                    id: spin_up
+                    on_click:
+                      - lvgl.spinbox.increment: spinbox_id
+                    widgets:
+                      - label:
+                          text: "+"
