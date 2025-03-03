@@ -10,14 +10,3 @@ time:
         then:
           - script.execute: time_update
 
-# Clock
-script:
-  - id: time_update
-    then:
-      - lvgl.label.update:
-          id: current_time
-          text: !lambda |-
-            static char hhss[8];
-            auto now = id(time_comp).now();
-            snprintf(hhss, sizeof(hhss), "%02d:%02d", now.hour, now.minute);
-            return hhss;
