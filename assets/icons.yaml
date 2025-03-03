@@ -22,6 +22,7 @@ font:
       "\U000F02AB",  # mdi-gmail
       "\U000F04B1",  # mdi-slack
       "\U000F0633",  # mdi-command
+      "\U000F15A2",  # mdi-ladder
       
       ]
 
@@ -42,3 +43,4 @@ substitutions:
   gmail:          "\U000F02AB"
   slack:          "\U000F04B1"
   command:        "\U000F0633"
+  ladder:         "\U000F15A2"
