@@ -32,6 +32,20 @@ lvgl:
       checked:
         bg_color: $button_on_color
         text_color: $button_text_color
+    buttonmatrix:
+      text_font: $text_font
+      scroll_on_focus: false
+      radius: $radius
+      width: $button_width
+      height: $button_height_single
+      pad_all: $padding
+      shadow_width: 0
+      text_color: $button_text_color
+      checked:
+        bg_color: $button_on_color
+        text_color: $button_text_color
+  
+  style_definitions:
     - id: header_footer
       bg_color: 0x2F8CD8
       bg_grad_color: 0x005782
