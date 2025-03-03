@@ -2,34 +2,14 @@ sensor:
   # Kitchen Temperate
   - platform: homeassistant
     entity_id: sensor.temperature_kitchen_temperature
-    id: office_temperature
+    id: kitchen_temperature
     on_value:
       - lvgl.label.update:
           id: temperatures
           text:
             format: "%d° / %d°"
-            args: [ '(int)round(id(outdoor_temperature).state)', '(int)round(x)' ]
+            args: [ '(int)round(id(kitchen_temperature).state)', '(int)round(x)' ]
             
-  # Header Outdoor Temperate
-  - platform: homeassistant
-    entity_id: sensor.office_temperature
-    id: office_temperature
-    on_value:
-      - lvgl.label.update:
-          id: temperatures
-          text:
-            format: "%d° / %d°"
-            args: [ '(int)round(id(outdoor_temperature).state)', '(int)round(x)' ]
-
-  - platform: homeassistant
-    entity_id: sensor.outdoor_temperature
-    id: outdoor_temperature
-    on_value:
-      - lvgl.label.update:
-          id: temperatures
-          text:
-            format: "%d° / %d°"
-            args: [ '(int)round(x)', '(int)round(id(office_temperature).state)' ]
 
 
 
