@@ -31,6 +31,24 @@ switch:
             - lvgl.resume:
             - lvgl.widget.redraw:
 
+# Had to add this fake one so all the code still works.
+
+light:
+  - platform: monochromatic
+    name: "Display Backlight"
+    output: fake_backlight_output
+    id: display_backlight
+    default_transition_length: 1s
+    gamma_correct: 2.8
+
+output:
+  - platform: template
+    id: fake_backlight_output
+    type: float
+    write_action:
+      - lambda: |-
+          ESP_LOGD("fake_light", "Fake brightness level: %.2f", state);
+
 # Screensaver Presence Trigger
 binary_sensor:
   - platform: homeassistant
