@@ -30,7 +30,22 @@ font:
       "\U000F059D", # windy
       "\U000F059E", # windy-variant
       "\U000F14E4", # sunny-off
+#     "\U000F035F", # Right
+#     "\U000F035E", # Left
+#     "\U000F02DC", # Home
       ]
+
+  - file: "fonts/RobotoCondensed-Regular.ttf"
+    id: roboto_icons_10
+    size: 10
+    bpp: 4
+    extras:
+      - file: "fonts/materialdesignicons-webfont.ttf"
+        glyphs: [
+          "\U000F035F", # Right
+          "\U000F035E", # Left
+          "\U000F02DC", # Home
+          ]
 
 lvgl:
   style_definitions:
