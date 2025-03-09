@@ -19,17 +19,17 @@ lvgl:
           rows:
             - buttons:
               - id: page_prev
-                text: $button_left
+                text: "\uF053"
                 on_press:
                   then:
                     lvgl.page.previous:
               - id: page_home
-                text: $button_home
+                text: "\uF015"
                 on_press:
                   then:
                     lvgl.page.show: main_page
               - id: page_next
-                text: $button_right
+                text: "\uF054"
                 on_press:
                   then:
                     lvgl.page.next:
