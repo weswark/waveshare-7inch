@@ -61,7 +61,7 @@ lvgl:
         border_color: 0x0077b3
         border_width: 1
         text_color: 0xFFFFFF
-        text_font: $text_font
+        text_font: roboto_icons_10 #$text_font
         pressed:
           bg_color: 0x006699
           bg_grad_color: 0x00334d
@@ -69,5 +69,4 @@ lvgl:
           bg_color: 0x1d5f96
           bg_grad_color: 0x03324A
           text_color: 0x005580
-
 
