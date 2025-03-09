@@ -107,9 +107,56 @@ lvgl:
                   data:
                     entity_id: switch.towel
 
-
       # PAGE - 2nd
-    - id: weather_forecast
+    - id: second_page
+      layout: 
+        type: flex
+        flex_flow: column_wrap
+      width: 100%
+      bg_color: Black
+      bg_opa: cover
+      pad_top: 30
+      pad_bottom: 5
+      pad_left: 5
+      pad_right: 5
+      
+      # TITLE
+      widgets:
+        - obj:
+            align: TOP_MID
+            styles: header_footer
+            widgets:
+              - label:
+                  text: "BussyNonna"
+                  align: CENTER
+                  text_align: CENTER
+                  text_color: 0xFFFFFF
+                  
+      # TOWELS
+        - button: 
+            height: $button_height_single
+            checkable: false
+            id: heated_towel_button
+            styles: control
+            widgets:
+              - label:
+                  text_font: $icon_font
+                  align: top_left
+                  id: heated_towel_icon                
+                  text: $ladder
+              - label:
+                  align: bottom_left
+                  id: heated_towel_label
+                  text: "TOWELS"
+            on_press:
+              - homeassistant.service:
+                  service: switch.toggle
+                  data:
+                    entity_id: switch.towel
+
+
+      # PAGE - 3nd
+    - id: third_page
       widgets:
         - obj:
             align: CENTER
