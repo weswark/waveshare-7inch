@@ -47,6 +47,7 @@ font:
           "\U000F02DC", # Home
           ]
 
+
 lvgl:
   style_definitions:
     - id: roboto15_style
