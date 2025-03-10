@@ -34,6 +34,7 @@ sensor:
     device_class: ""
 
 
+
 text_sensor:
 # Ip Address
   - platform: wifi_info
@@ -46,3 +47,10 @@ text_sensor:
     name: Version
     icon: mdi:package-variant-closed
     hide_timestamp: true
+  #-------------------------------------------------------------------------------
+  # Custom Text sensors
+  #-------------------------------------------------------------------------------
+  - platform: template
+    name: Uptime Human Readable
+    id: uptime_human_readable
+    icon: mdi:clock-start
