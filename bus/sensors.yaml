@@ -1,3 +1,4 @@
+### Sensors
 sensor:
   # Kitchen Temperate
   - platform: homeassistant
@@ -19,6 +20,7 @@ sensor:
           id: spinbox_id
           value: !lambda return x;
 
+### Binary sensors
 binary_sensor:
   # Towels
   - platform: homeassistant
@@ -34,3 +36,13 @@ binary_sensor:
   - platform: status
     name: Status sensor
 
+###Text sensors for weather status
+text:
+  - platform: lvgl
+    name: fr_cond_icon
+    widget: lbl_weather_forecast_condition_icon
+    mode: text
+  - platform: lvgl
+    name: fr_cond_name
+    widget: lbl_weather_forecast_condition_name
+    mode: text
