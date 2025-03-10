@@ -16,3 +16,9 @@ image:
     resize: 32x32
     type: RGB565
     transparency: alpha_channel
+    
+### Background
+  - file: "images/cat_ona_bus.jpg"
+    id: background
+    # resize: 480x320
+    type: RGB565
